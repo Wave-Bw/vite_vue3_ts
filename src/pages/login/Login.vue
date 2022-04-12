@@ -1,5 +1,5 @@
 <template>
-  <div class="test">用户名:{{ mainStore.name }}<br />长度:{{ mainStore.nameLength }}</div>
+  <div class="test">用户名:{{ store.name }}<br />长度:{{ store.nameLength }}</div>
   <hr />
   <button @click="updateName">修改store中的name</button>
   <hr />
@@ -8,13 +8,13 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '@/store/mian'
+import { mainStore } from '@/store/index'
 import { NButton } from 'naive-ui'
 
-const mainStore = useMainStore()
+const store = mainStore()
 
 const updateName = () => {
-  mainStore.$patch({
+  store.$patch({
     name: '名称被修改了,nameLength也随之改变了',
   })
 }

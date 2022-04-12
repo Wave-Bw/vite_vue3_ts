@@ -1,15 +1,5 @@
-> 哈喽,大家好 我是`xy`👨🏻‍💻。 从我最初接触`vue3`版本到现在已经有一年的时间。由于 vue3.2 版本的发布，`<script setup>` 的实验性标志已经去掉，已经陆陆续续有不少公司开始使用 `vue3.2`开发项目了。这篇文章就来帮助大家如何快速使用 `vue3.x`，`typeScript`， `vite` 搭建一套企业级的开发脚手架 🤖。废话不多说，直接上手开搞 💪
+> `vue3.x`，`typeScript`， `vite` 
 
-## 搭建前准备
-
-1. `Vscode`: 前端人必备写码神器
-2. `Chrome`：对开发者非常友好的浏览器(反正我是很依赖它的)
-3. `Nodejs`&`npm`：配置本地开发环境，安装 Node 后你会发现 npm 也会一起安装下来
-4. `Vue.js devtools`：浏览器调试插件
-5. `Vue Language Features (Volar)`：Vscode 开发 vue3 必备插件，提供语法高亮提示，非常好用
-6. `Vue 3 Snippets`：vue3 快捷输入
-
-> 由于`Vue.js devtools` 需要到谷歌扩展商店才能下载,贴心 ❤️ 的`xy`已经为大家准备好了`crx`文件了,公众号回复:【`VueDevTools`】可自动获取哦 💪
 
 ## Vue2 与 Vue3 的区别
 
@@ -37,55 +27,6 @@ activated     -> onActivated
 deactivated   -> onDeactivated
 ```
 
-## 介绍 vite
-
-> Vite：下一代前端开发与构建工具
-
-- 💡 极速的开发服务器启动
-- ⚡️ 轻量快速的热模块重载（HMR）
-- 🛠️ 丰富的功能
-- 📦 自带优化的构建
-- 🔩 通用的插件接口
-- 🔑 完全类型化的 API
-
-`Vite` （法语意为 “迅速”，发音 /vit/）是一种全新的前端构建工具，它极大地改善了前端开发体验。
-
-它主要由两部分组成：
-
-- 一个开发服务器，它基于 原生 `ES` 模块 提供了 丰富的内建功能，如速度快到惊人的 模块热更新（HMR）。
-
-- 一套构建指令，它使用 `Rollup` 打包你的代码，并且它是预配置的，可以输出用于生产环境的优化过的静态资源。
-
-- Vite 意在提供开箱即用的配置，同时它的 插件 API 和 JavaScript API 带来了高度的`可扩展性`，并有完整的类型支持。
-
-## 使用 vite 快速创建脚手架
-
-> 兼容性注意:Vite 需要 `Node.js` 版本 `>= 12.0.0`。
-
-1. 第一步: 在需要创建项目文件目录下打开 `cmd` 运行以下命令
-
-```bash
-# npm 6.x
-npm init @vitejs/app vite_vue3_ts --template
-
-# npm 7+, 需要额外的双横线：
-npm init @vitejs/app vite_vue3_ts -- --template
-
-# yarn
-yarn create @vitejs/app vite_vue3_ts --template
-```
-
-这里我采用 `yarn` 来安装
-
-![](https://files.mdnice.com/user/16854/befdd482-25e0-43f9-a5e3-7b34a9d8696c.png)
-
-2. 第二步: 选择 `vue`回车 => `vue-ts`回车
-
-![](https://files.mdnice.com/user/16854/0280afe9-2ba2-4dce-bdc4-6b756151fd5a.png)
-![](https://files.mdnice.com/user/16854/d1a58b76-2bc7-489b-966c-fb2a4136e39a.png)
-
-3. 第三步: `cd` 到项目文件夹,安装依赖,启动项目
-
 ```bash
 # 进入项目文件夹
 cd vite_vue3_ts
@@ -95,7 +36,6 @@ yarn
 yarn dev
 ```
 
-![](https://files.mdnice.com/user/16854/64867857-9e79-426a-89e3-c92303934094.png)
 
 ## 约束代码风格
 
@@ -581,7 +521,7 @@ app.mount('#app')
 
 ## 统一请求封装
 
-> 使用过 vue2.x 的同学应该对 axios 很熟悉了，这里我们直接使用 axios 做封装：
+> 使用 axios 做封装：
 
 ```bash
 # 安装 axios
@@ -740,166 +680,16 @@ export interface ILoginApi {
 
 至此,一个简单地请求封装完成了!!!!
 
-除了自己手动封装 axios ,这里还推荐一个 vue3 的请求库: `VueRequest`,非常好用,下面来看看 `VueRequest`有哪些比较好用的功能吧!!!
-
-- 🚀 所有数据都具有响应式
-- 🔄 轮询请求
-- 🤖 自动处理错误重试
-- 🗄 内置请求缓存
-- 💧 节流请求与防抖请求
-- 🎯 聚焦页面时自动重新请求
-- ⚙️ 强大的分页扩展以及加载更多扩展
-- 📠 完全使用 Typescript 编写，具有强大的类型提示
-- ⚡️ 兼容 Vite
-- 🍃 轻量化
-- 📦 开箱即用
-
-![](https://files.mdnice.com/user/16854/c587ba05-5a22-4024-a831-6fecffee5d20.png)
-
-是不是很强大 💪
-
-> 官网链接: https://www.attojs.com/
 
 ## 状态管理 pinia
 
-> 由于 vuex 4 对 typescript 的支持让人感到难过，所以状态管理弃用了 vuex 而采取了 pinia. pinia 的作者是 Vue 核心团队成员
-
-尤大好像说 `pinia` 可能会代替 `vuex`，所以请放心使用。
-
 ### 安装 pinia
-
-Pinia 与 Vuex 的区别：
-
-- `id` 是必要的，它将所使用 store 连接到 devtools。
-- 创建方式：`new Vuex.Store(...)`(vuex3)，`createStore(...)`(vuex4)。
-- 对比于 vuex3 ，state 现在是一个`函数返回对象`。
-- 没有 `mutations`，不用担心，state 的变化依然记录在 devtools 中。
 
 ```bash
 # 安装
 yarn add pinia@next
 ```
 
-main.ts 中增加
-
-```js
-# 引入
-import { createPinia } from "pinia"
-# 创建根存储库并将其传递给应用程序
-app.use(createPinia())
-```
-
-在 `src` 文件夹下新增 `store` 文件夹,接在在 store 中新增 `main.ts`
-
-### 创建 `store`, mian.ts :
-
-```js
-import { defineStore } from 'pinia'
-
-export const useMainStore = defineStore({
-  id: 'mian',
-  state: () =>({
-    name: '超级管理员'
-  })
-})
-```
-
-组建中获取 store :
-
-```js
-<template>
-  <div>{{mainStore.name}}</div>
-</template>
-
-<script setup lang="ts">
-import { useMainStore } from "@/store/mian"
-
-const mainStore = useMainStore()
-
-</script>
-```
-
-### getters 用法介绍
-
-> Pinia 中的 getter 与 Vuex 中的 getter 、组件中的计算属性具有相同的功能
-
-`store` => `mian.ts`
-
-```js
-import { defineStore } from 'pinia'
-
-export const useMainStore = defineStore({
-  id: 'mian',
-  state: () => ({
-    name: '超级管理员',
-  }),
-  // getters
-  getters: {
-    nameLength: (state) => state.name.length,
-  }
-})
-```
-
-组件中使用:
-
-```js
-<template>
-  <div>用户名:{{ mainStore.name }}<br />长度:{{ mainStore.nameLength }}</div>
-  <hr/>
-  <button @click="updateName">修改store中的name</button>
-</template>
-
-<script setup lang="ts">
-import { useMainStore } from '@/store/mian'
-
-const mainStore = useMainStore()
-
-const updateName = ()=>{
-  // $patch 修改 store 中的数据
-  mainStore.$patch({
-    name: '名称被修改了,nameLength也随之改变了'
-  })
-}
-</script>
-```
-
-![](https://files.mdnice.com/user/16854/ab70ded8-aa34-456a-9044-ac560ff5d2d4.gif)
-
-### actions
-
-> 这里与 `Vuex` 有极大的不同，`Pinia` 仅提供了一种方法来定义如何更改状态的规则，放弃 `mutations` 只依靠 `Actions`，这是一项重大的改变。
-
-`Pinia` 让 `Actions` 更加的灵活：
-
-- 可以通过组件或其他 `action` 调用
-- 可以从其他 `store` 的 `action` 中调用
-- 直接在 `store` 实例上调用
-- 支持`同步`或`异步`
-- 有任意数量的参数
-- 可以包含有关如何更改状态的逻辑（也就是 vuex 的 mutations 的作用）
-- 可以 `$patch` 方法直接更改状态属性
-
-```ts
-import { defineStore } from 'pinia'
-
-export const useMainStore = defineStore({
-  id: 'mian',
-  state: () => ({
-    name: '超级管理员',
-  }),
-  getters: {
-    nameLength: (state) => state.name.length,
-  },
-  actions: {
-    async insertPost(data:string){
-      // 可以做异步
-      // await doAjaxRequest(data);
-      this.name = data;
-    }
-  },
-})
-
-```
 
 ## 环境变量配置
 
@@ -972,8 +762,6 @@ import { NButton } from "naive-ui"
     <!-- 容器 -->
 </n-config-provider>
 ```
-
-尤其是主题配置这个功能，我真的很喜欢 ❤️
 
 > 组件库选择上不做任何强制，根据自己的项目需要选择合适的组件库即可
 
@@ -1100,43 +888,4 @@ export default defineConfig({
 - `@vitejs/plugin-legacy` 为打包后的文件提供传统浏览器`兼容性`支持
 - `unplugin-vue-components` 组件的按需自动导入
 - `vite-plugin-compression` 使用 gzip 或者 brotli 来压缩资源
-- .....
 
-## 非常推荐使用的 hooks 库
-
-> 因为`vue3.x`和`react hooks`真的很像，所以就称为 `hooks`
-
-`VueUse`：https://vueuse.org/
-
-![](https://files.mdnice.com/user/16854/cbf73b46-d22b-44e7-bca1-c33764e41784.png)
-
-看到这个库的第一眼，让我立马想到了 react 的 `ahooks`
-
-`VueUse` 是一个基于 `Composition API` 的实用函数集合。通俗的来说，这就是一个`工具函数`包，它可以帮助你快速实现一些常见的功能，免得你自己去写，解决重复的工作内容。以及进行了基于 Composition API 的封装。让你在 vue3 中更加得心应手。
-
-💡想要入手 vue3 的小伙伴，赶快学习起来吧！！！
-
-💡最后给大家奉上仓库地址吧：https://github.com/xushanpei/vite_vue3_ts
-
-## 写在最后
-
-> `公众号`：`前端开发爱好者` 专注分享 `web` 前端相关`技术文章`、`视频教程`资源、热点资讯等，如果喜欢我的分享，给 🐟🐟 点一个`赞` 👍 或者 ➕`关注` 都是对我最大的支持。
-
-欢迎`长按图片加好友`，我会第一时间和你分享`前端行业趋势`，`面试资源`，`学习途径`等等。
-
-![](https://files.mdnice.com/user/16854/b382cc29-13f4-4cd7-86ae-c669cb7ae117.jpg)
-
-关注公众号后，在首页：
-
-- 回复`面试题`，获取最新大厂面试资料。
-- 回复`简历`，获取 3200 套 简历模板。
-- 回复`React实战`，获取 React 最新实战教程。
-- 回复`Vue实战`，获取 Vue 最新实战教程。
-- 回复`ts`，获取 TypeAcript 精讲课程。
-- 回复`vite`，获取 精讲课程。
-- 回复`uniapp`，获取 uniapp 精讲课程。
-- 回复`js书籍`，获取 js 进阶 必看书籍。
-- 回复`Node`，获取 Nodejs+koa2 实战教程。
-- 回复`数据结构算法`，获取 数据结构算法 教程。
-- 回复`架构师`，获取 架构师学习资源教程。
-- 更多教程资源应用尽有，欢迎`关注获取`
